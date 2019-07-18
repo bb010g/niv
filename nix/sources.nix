@@ -45,7 +45,7 @@ with rec
 
   # A wrapper around pkgs.fetchzip that has inspectable arguments,
   # annoyingly this means we have to specify them
-  fetchzip = { url, sha256 }@attrs: pkgs.fetchzip attrs;
+  fetchzip = { url, sha256, stripRoot ? true }@attrs: pkgs.fetchzip attrs;
 
   hasNixpkgsPath = (builtins.tryEval <nixpkgs>).success;
   hasThisAsNixpkgsPath =
